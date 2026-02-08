@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Ovenii ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+    .btn {
+      margin-top: 25px;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 30px;
+      background: #fff;
+      color: #ff5f7e;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      animation: fadeUp 1s ease;
+    }
+    .card h2 { margin-bottom: 15px; }
+    .card p { line-height: 1.7; }
+    .hearts {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      color: rgba(255,255,255,0.7);
+      animation: float 6s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.4); opacity: 0; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 3.5rem; }
+      .hero p { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<section class="hero">
+  <div>
+    <h1>Ovenii 💖</h1>
+    <p>Important question below 👇</p>
+    <button class="btn" onclick="document.getElementById('valentine').scrollIntoView({behavior:'smooth'})">
+      Continue 💌
+    </button>
+  </div>
+</section>
+
+
+
+<section>
+  <div class="card">
+    <h2>Happy Valentine’s Day 💘</h2>
+    <p>
+      If love had a name, it would probably sound a lot like yours.
+      Thank you for being you, Ovenii.
+    </p>
+  </div>
+</section>
+
+<script>
+  const hearts = document.getElementById('hearts');
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 20 + 12) + 'px';
+    heart.innerText = '❤️';
+    hearts.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
+  setInterval(createHeart, 400);
+
+  const messages = [
+    "Are you sure? 😏",
+    "Think again 🙃",
+    "Wrong button, Ovenii 😌",
+    "Nice try 😂",
+    "You can't escape love 💘"
+  ];
+
+  function moveNo() {
+    const btn = document.getElementById('noBtn');
+    btn.style.position = 'relative';
+    btn.style.left = Math.random() * 120 - 60 + 'px';
+    btn.style.top = Math.random() * 80 - 40 + 'px';
+    document.getElementById('response').innerText = messages[Math.floor(Math.random()*messages.length)];
+  }
+
+  function yesResponse() {
+    document.getElementById('response').innerText = "Yayyy!! 💖 I knew it 😍 Happy Valentine’s Day, Ovenii 💘";
+  }
+</script>
+
+</body>
+</html>
